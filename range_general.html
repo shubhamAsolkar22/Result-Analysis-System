@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+input[type=submit],input[type=reset]{
+		background-color:  #4CAF50;
+		color:	white;
+		padding:	10px;
+		border:	none;
+		cursor: 	pointer;
+		width:	150px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		transition-duration:0.3s;
+		border-radius:	5px;
+	}
+	input[type=submit],input[type=reset]:hover {
+		background-color:#449d48;
+	}
+.if-display
+{
+	border-color:#3d3d3d;
+	background-color:#e4e4e4;
+}
+
+</style>
+</head>
+<link rel="stylesheet" href="bar.css">
+<body>
+<?php
+include'navbar.php';
+
+?>
+<div class="display"><center>
+<h1>Students in the specified range of CGPI:-</h1>
+<form action="range_general.php" target="sol" method="POST" >
+LOWER &nbsp;LIMIT:&nbsp; <input type="number" step="0.01" name="LB" value="0">
+<p>UPPER &nbsp;LIMIT: &nbsp;&nbsp;<input type="number" step="0.01" name="UB" value="0"><br>
+<p><input type="submit" value="SUBMIT">&nbsp;<input type="reset" value="RESET">
+</form></center>
+<div style="margin: 10px;">
+<iframe class="if-display" name="sol" height="350" width="100%" >
+</iframe>
+</div>
+</div>
+<?php
+include'footer.php';
+?>
+</body>
+</html>

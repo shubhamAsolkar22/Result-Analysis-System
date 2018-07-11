@@ -1,0 +1,40 @@
+<html>
+<head>
+<style>
+input[type=submit],input[type=reset]{
+		background-color:  #4CAF50;
+		color:	white;
+		padding:	10px;
+		border:	none;
+		cursor: 	pointer;
+		width:	150px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		transition-duration:0.3s;
+		border-radius:	5px;
+	}
+	input[type=submit],input[type=reset]:hover {
+		background-color:#449d48;
+	}
+input[type=text]{
+	
+	height: 100px;
+	width: 100%;
+	
+}
+input[type=text]:focus	{
+	border-color:1px solid black;
+}
+</style>
+<body>
+<?php
+include'navbar.php';
+?><h2 style="font-family:Calibri;">Insert  Custom querry</h2>
+<form action="custom.php" method="POST" target="qresult">
+<input type='text' name="query" placeholder="Enter your query:">
+<p><input type='submit' value="Submit">&nbsp;<input type='reset' value="Reset">
+</form>
+<iframe class="if-display" height="320" width="100%" name="qresult">
+</iframe>
+<?php include'footer.php'?>
+</body>
+</html>

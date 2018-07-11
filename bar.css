@@ -1,0 +1,88 @@
+.footer
+{
+	position: relative;
+	margin:0;
+	bottom:0;
+	padding:2px;
+	color:white;
+	height:16px;
+	background-color:#2E7D32;
+	text-align: center;
+	font-family:Calibri;
+	font-size:14px;
+    overflow: hidden;
+	width:100%;
+}
+body
+{
+	background-color:#66BB6A;
+	margin:0;
+}
+.tdisplay
+{
+	font-family:calibri;
+	padding: 10px;
+	background-color: #f9f9f9;
+	
+}
+table{
+	border-collapse:collapse;
+	background-color:#e4e4e4;
+	cursor: 	pointer;
+}
+table,th,td,tr
+{
+	border:1px solid black;
+	text-align:center;
+	padding: 5px;
+}
+tr:hover{background-color:#acacac;}
+.display
+{
+	font-family: Calibri;
+}
+.display-or
+{
+	margin:10px 10px 10px 10px;
+	border: 1px solid black;
+	font-family: Calibri;
+	background-color: #f9f9f9;
+	overflow-x:auto;
+}
+input[type=submit],input[type=reset]{
+		background-color:  #C8E6C9;
+		color:	black;
+		padding:	10px;
+		border:	none;
+		cursor: 	pointer;
+		width:	150px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		transition-duration:0.3s;
+		border-radius:	5px;
+	}
+	input[type=submit],input[type=reset]:hover {
+		background-color:#A5D6A7;
+	}
+input[type=text]{
+	
+	height: 100px;
+	width: 100%;
+	
+}
+input[type=text]:focus	{
+	border-color:1px solid black;
+}
+.in-txt
+{
+	border:1px solid ;
+	transition-duration:0.3s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.if-display
+{
+	border-color:#3d3d3d;
+	background-color:#e4e4e4;
+	border-radius:	8px;
+}
+

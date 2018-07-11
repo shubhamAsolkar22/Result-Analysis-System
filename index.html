@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<link rel="stylesheet" href="css_files/login.css">
+</head>
+	<body>
+	<form method="post" action="" onsubmit="return formvalidate()"><center>
+	<div class="container">
+	<div class="imgcontainer">
+	<img src="img_files/img_avatar.png" alt="avatar" class="avatar"></div>
+	<div class="container-element">
+	<p><label>Username:</label>
+	<input type="text" placeholder="Enter Username" name="username">
+	<br>
+	<p><p><label>Password:&nbsp</label>
+	<input type="password" placeholder="Enter Password" name="password">
+	<p>
+	<input type="Submit" name="bttLogin" class="in-bttn" value="Login"></input>
+	</div>
+	</div></center>
+	</form>
+	<?php
+   include("config.php");
+   session_start();
+   
+   if(isset($_SESSION['login_user'])){
+	   header("location: home.html");
+   }
+   else{
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      
+      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      
+      $sql = "SELECT id FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+           
+      $count = mysqli_num_rows($result);      
+      
+      if($count == 1) {
+			$_SESSION['login_user']=$myusername;
+			header("location: home.html");
+		}
+		
+		else {
+		echo '<script language="javascript">';
+		echo 'alert("Please enter a valid Username or Password")';
+		echo '</script>';
+      }
+	}
+   }
+?>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userss xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<users>
+		<id>acc1</id>
+		<username>priyankthakur3</username>
+		<passcode>a123b123c123</passcode>
+	</users>
+	<users>
+		<id>acc2</id>
+		<username>testacc</username>
+		<passcode>abcd1234</passcode>
+	</users>
+</userss>

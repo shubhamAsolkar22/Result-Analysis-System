@@ -1,0 +1,181 @@
+<HTML>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="css_files/bar.css">
+</head>
+<BODY>
+<?php
+include'navbar.php';
+?>
+<center>
+<div class="container">
+<div class="container-element">
+<H1>Overall Result display<br>
+YEAR : 2016	SEM : IV</h1>
+<?php
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE AM_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+			$am1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+			$am1=$row["PASSING_PERCENTAGE"];
+}
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE COA_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+while($row = mysqli_fetch_assoc($result)) {
+        $coam1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+    $coam1=$row["PASSING_PERCENTAGE"];
+}
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE DBMS_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+while($row = mysqli_fetch_assoc($result)) {
+        $dbms1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+    $dbms1=$row["PASSING_PERCENTAGE"];
+}
+
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE AOA_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+while($row = mysqli_fetch_assoc($result)) {
+        $aoa1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+    $aoa1=$row["PASSING_PERCENTAGE"];
+}
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE CG_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+while($row = mysqli_fetch_assoc($result)) {
+        $cg1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+    $cg1=$row["PASSING_PERCENTAGE"];
+}
+$sql = $sql = "SELECT ( (SELECT COUNT(*) FROM result WHERE TCS_REMARK = 'P')/(SELECT COUNT(*)FROM RESULT)*100 ) 'PASSING_PERCENTAGE'";
+$result = mysqli_query($db, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+
+while($row = mysqli_fetch_assoc($result)) {
+        $tc1=$row["PASSING_PERCENTAGE"];
+}
+}else {
+    $tc1=$row["PASSING_PERCENTAGE"];
+}
+$sql = "SELECT count(*) FROM result";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$total = $row["count(*)"];
+	
+}
+}
+
+$sql = "SELECT count(*) FROM result where AM_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$am = $row["count(*)"];
+	
+}
+}
+$sql = "SELECT count(*) FROM result where AOA_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$aoa = $row["count(*)"];
+	}
+}
+$sql = "SELECT count(*) FROM result where COA_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$coa = $row["count(*)"];
+	}
+}
+$sql = "SELECT count(*) FROM result where DBMS_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$dbms = $row["count(*)"];
+	}
+}
+$sql = "SELECT count(*) FROM result where CG_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$cg = $row["count(*)"];
+	
+}
+}
+$sql = "SELECT count(*) FROM result where TCS_REMARK = 'P'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+	$tcs = $row["count(*)"];
+	
+}
+}
+echo '
+<table> <tr><th>SUBJECT</TH><TH>PASSED</TH><TH>FAILED</TH><TH>TOTAL</TH><th>Passing Percentage%</th></tr>
+<TR><TD>APPLIED MATHEMATICS-IV</TD>
+	<TD>'.$am.'</TD>
+	<TD>'.($total-$am).'</TD>
+	<TD>'.$total.'</TD>
+	<td>'.$am1.'</td>
+<TR><TD>ANALYSIS OF ALGORITHM</TD>
+	<TD>'.$aoa.'</TD>
+	<TD>'.($total-$aoa)."</TD>
+	<TD>".$total."</TD>
+	<td>".$aoa1."</td>
+<TR><TD>COMPUTER ORGANISATION AND ARCHITECTURE</TD>
+	<TD>".$coa."</TD>
+	<TD>".($total-$coa)."</TD>
+	<TD>".$total."</TD>
+	<td>".$coam1."</td>
+	<TR><TD>DATABASE MANAGEMENT SYSTEM</TD>
+	<TD>".$dbms."</TD>
+	<TD>".($total-$dbms)."</TD>
+	<TD>".$total."</TD>
+	<td>".$dbms1."</td>
+<TR><TD>COMPUTER GRAPHICS</TD>
+	<TD>".$cg."</TD>
+	<TD>".($total-$cg)."</TD>
+	<TD>".$total."</TD>
+	<td>".$cg1."</td>
+<TR><TD>THEORETICAL COMPUTER SCIENCE</TD>
+	<TD>".$am."</TD>
+	<TD>".($total-$tcs)."</TD>
+	<TD>".$total."</TD>
+	<td>".$tc1."</td>";
+echo'</tr></table>';
+mysqli_close($db);
+?> 
+
+</div>
+</div>
+</center>
+
+<div class="footer">
+Project by:&nbsp;Shubham Asolkar,&nbsp;Priyank Thakur,&nbsp;Shubham Naik&nbsp;</div>
+</body>
+</html>
+
